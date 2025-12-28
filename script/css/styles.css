@@ -986,7 +986,8 @@ body {
     }
 
     .hero {
-        min-height: 90vh;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
         padding: 6rem 1.5rem;
     }
 
