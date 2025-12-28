@@ -64,6 +64,12 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Account for fixed header when scrolling to anchors */
+}
+
+/* Ensure anchor targets are not hidden by fixed header */
+[id] {
+    scroll-margin-top: 100px;
 }
 
 /* Global Focus States for Accessibility */
@@ -534,6 +540,7 @@ body {
     margin: 0 auto;
     padding: 6rem 2rem;
     position: relative;
+    scroll-margin-top: 100px; /* Offset for fixed header when scrolling to section */
 }
 
 .section-title {
@@ -986,7 +993,8 @@ body {
     }
 
     .hero {
-        min-height: 90vh;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
         padding: 6rem 1.5rem;
     }
 
@@ -1668,11 +1676,21 @@ img[loading="lazy"]:not([src=""]) {
 
 @media (max-width: 768px) {
     .dark-mode-toggle {
-        top: 80px;
+        top: 95px;
         right: 15px;
         width: 40px;
         height: 40px;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dark-mode-toggle {
+        top: 90px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
     }
 }
 

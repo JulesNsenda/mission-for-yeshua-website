@@ -119,7 +119,8 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero {
-        min-height: 85vh;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
     }
 
     .grid-3 .card {
