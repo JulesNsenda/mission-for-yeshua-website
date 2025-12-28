@@ -257,6 +257,12 @@
     transform: scale(1.05);
 }
 
+/* Book Placeholder Styles */
+.book-cover[src*="book-placeholder.svg"] {
+    object-fit: contain;
+    background: linear-gradient(135deg, #1e5a8a 0%, #0d3a5c 100%);
+}
+
 .book-cover.default-cover {
     background: var(--gradient-primary);
     display: flex;

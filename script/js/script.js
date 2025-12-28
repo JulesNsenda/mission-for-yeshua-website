@@ -343,16 +343,15 @@ function initializeBookFeatures() {
 // Handle book cover images
 function initializeBookCovers() {
     const bookCovers = document.querySelectorAll('.book-cover');
+    const placeholderPath = window.location.pathname.includes('/pages/')
+        ? '../images/books/book-placeholder.svg'
+        : 'images/books/book-placeholder.svg';
 
     bookCovers.forEach(cover => {
         cover.addEventListener('error', function () {
-            this.src = '';
-            this.classList.add('default-cover');
-
-            // Create default cover content
-            this.innerHTML = `
-                <i class="fas fa-book default-cover-icon"></i>
-            `;
+            if (!this.src.includes('book-placeholder.svg')) {
+                this.src = placeholderPath;
+            }
         });
     });
 }
