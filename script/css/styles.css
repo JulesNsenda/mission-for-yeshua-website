@@ -64,6 +64,12 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Account for fixed header when scrolling to anchors */
+}
+
+/* Ensure anchor targets are not hidden by fixed header */
+[id] {
+    scroll-margin-top: 100px;
 }
 
 /* Global Focus States for Accessibility */
@@ -534,6 +540,7 @@ body {
     margin: 0 auto;
     padding: 6rem 2rem;
     position: relative;
+    scroll-margin-top: 100px; /* Offset for fixed header when scrolling to section */
 }
 
 .section-title {
