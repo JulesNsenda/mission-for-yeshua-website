@@ -459,14 +459,23 @@ document.addEventListener('DOMContentLoaded', function () {
 // Back to Top Button functionality
 function initializeBackToTop() {
     const backToTopButton = document.querySelector('.back-to-top');
+    const floatingContact = document.querySelector('.floating-contact');
     if (!backToTopButton) return;
 
     // Show/hide button based on scroll position
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             backToTopButton.classList.add('visible');
+            // Shift contact button to the left when back-to-top appears
+            if (floatingContact) {
+                floatingContact.classList.add('shifted');
+            }
         } else {
             backToTopButton.classList.remove('visible');
+            // Move contact button back to original position
+            if (floatingContact) {
+                floatingContact.classList.remove('shifted');
+            }
         }
     });
 
