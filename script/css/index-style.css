@@ -1,178 +1,139 @@
- /* Additional Custom Styles */
- .header {
-    height: 80px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+/* Homepage Specific Styles */
 
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-links a {
-    font-weight: 500;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-    background: rgba(37, 99, 235, 0.1);
-    color: #2563eb;
-}
-
+/* Hero enhancements for homepage */
 .hero {
-    min-height: 80vh;
-    padding: 8rem 2rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('../../images/hero-bg.jpg') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height: 100vh;
+    position: relative;
 }
 
 .hero-content {
-    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+@keyframes titleGlow {
+    0% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+    100% { filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)); }
 }
 
-.button {
-    display: inline-block;
-    background: #2563eb;
-    color: #ffffff;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+/* Mission Cards with stagger animation */
+.grid-3 .card {
+    animation: cardSlideIn 0.6s ease-out backwards;
 }
 
-.button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+.grid-3 .card:nth-child(1) { animation-delay: 0.1s; }
+.grid-3 .card:nth-child(2) { animation-delay: 0.2s; }
+.grid-3 .card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.content-section {
-    max-width: 1280px;
-    margin: 6rem auto;
-    padding: 0 2rem;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    font-weight: 700;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-}
-
-.card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-}
-
+/* Card icon animations */
 .card i {
-    font-size: 2.5rem;
-    color: #2563eb;
+    transition: transform 0.3s ease;
+}
+
+.card:hover i {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Decorative background elements */
+.content-section {
+    position: relative;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(30, 90, 138, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.content-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -200px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Enhanced section title for homepage */
+.content-section .section-title {
+    margin-bottom: 3rem;
+}
+
+/* Teaching cards (if enabled) */
+.teaching-card {
+    text-align: left;
+}
+
+.teaching-card .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
     margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+.teaching-card:hover .card-image {
+    transform: scale(1.03);
 }
 
+.scripture-reference {
+    color: var(--primary);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Homepage specific footer adjustments */
 .footer {
-    background: #1e293b;
-    padding: 4rem 2rem 2rem;
-    color: #ffffff;
+    margin-top: 0;
 }
 
-.footer-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-}
-
-.footer h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.social-links a {
-    color: #ffffff;
-    font-size: 1.25rem;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.social-links a:hover {
-    opacity: 1;
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .nav-links {
+    .hero {
+        min-height: 85vh;
+    }
+
+    .grid-3 .card {
+        animation-delay: 0s !important;
+    }
+
+    .content-section::before,
+    .content-section::after {
         display: none;
     }
+}
 
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 1rem;
     }
 }
