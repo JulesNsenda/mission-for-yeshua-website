@@ -17,7 +17,7 @@
     --gradient-primary: linear-gradient(135deg, #1e5a8a 0%, #2d7ab8 100%);
     --gradient-secondary: linear-gradient(135deg, #b8860b 0%, #d4a524 100%);
     --gradient-warm: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
-    --gradient-hero: linear-gradient(135deg, rgba(30, 90, 138, 0.75) 0%, rgba(26, 54, 93, 0.7) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(30, 90, 138, 0.55) 0%, rgba(26, 54, 93, 0.5) 100%);
     --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 
     /* Neutrals */
@@ -625,12 +625,14 @@ body {
 
 .footer ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer ul a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    display: inline-block;
+    display: block;
     padding: 0.4rem 0;
     transition: all 0.3s ease;
     position: relative;
@@ -1081,19 +1083,12 @@ body {
 }
 
 /* ========================================
-   PARALLAX EFFECT
+   HERO BACKGROUND EFFECT
    ======================================== */
 .parallax-bg {
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-@media (max-width: 768px) {
-    .parallax-bg {
-        background-attachment: scroll;
-    }
 }
 
 /* ========================================
