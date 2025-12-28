@@ -66,6 +66,26 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Global Focus States for Accessibility */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
 body {
     font-family: var(--font-family);
     line-height: 1.7;
@@ -610,15 +630,30 @@ body {
 .footer ul a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    display: block;
+    display: inline-block;
     padding: 0.4rem 0;
-    transition: var(--transition-normal);
+    transition: all 0.3s ease;
     position: relative;
 }
 
+.footer ul a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-secondary);
+    transition: width 0.3s ease;
+}
+
 .footer ul a:hover {
-    color: var(--primary-light);
-    padding-left: 10px;
+    color: #ffffff;
+    transform: translateX(8px);
+}
+
+.footer ul a:hover::after {
+    width: 100%;
 }
 
 .footer a {
