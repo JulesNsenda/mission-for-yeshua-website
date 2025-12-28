@@ -172,9 +172,9 @@
     opacity: 1;
 }
 
-.card-icon {
-    width: 70px;
-    height: 70px;
+.belief-icon {
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,25 +184,25 @@
     transition: all 0.3s ease;
 }
 
-.card-icon i {
-    font-size: 1.8rem;
+.belief-icon i {
+    font-size: 1.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.belief-card:hover .card-icon {
+.belief-card:hover .belief-icon {
     transform: scale(1.1) rotate(-5deg);
     background: var(--gradient-primary);
 }
 
-.belief-card:hover .card-icon i {
+.belief-card:hover .belief-icon i {
     -webkit-text-fill-color: #ffffff;
 }
 
 .belief-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -211,27 +211,6 @@
 .belief-card p {
     color: var(--text-secondary);
     line-height: 1.7;
-}
-
-/* Different gradient for each card icon */
-.belief-card:nth-child(2) .card-icon {
-    background: linear-gradient(135deg, rgba(184, 134, 11, 0.12), rgba(201, 162, 39, 0.12));
-}
-
-.belief-card:nth-child(2) .card-icon i {
-    background: var(--gradient-secondary);
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-.belief-card:nth-child(3) .card-icon {
-    background: linear-gradient(135deg, rgba(26, 107, 107, 0.12), rgba(30, 90, 138, 0.12));
-}
-
-.belief-card:nth-child(3) .card-icon i {
-    background: linear-gradient(135deg, #1a6b6b, #1e5a8a);
-    -webkit-background-clip: text;
-    background-clip: text;
 }
 
 /* Team Section */
