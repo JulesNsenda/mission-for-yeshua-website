@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Page Not Found - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="script/css/styles.css">
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 90, 138, 0.05) 0%, rgba(26, 54, 93, 0.05) 100%);
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .error-actions .button {
+            min-width: 150px;
+        }
+
+        .error-links {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(30, 90, 138, 0.1);
+        }
+
+        .error-links p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .error-links ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .error-links a:hover {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
+            </a>
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="pages/about.html">About</a>
+                <a href="pages/community-center.html">Grace Community Center</a>
+                <a href="pages/books.html">Books</a>
+                <a href="pages/contact.html">Contact</a>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    </header>
+
+    <!-- Error Content -->
+    <main class="error-page">
+        <i class="fas fa-compass error-icon"></i>
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+            The page you're looking for seems to have wandered off the path.
+            Don't worry, even the best explorers get lost sometimes.
+        </p>
+        <div class="error-actions">
+            <a href="index.html" class="button">
+                <i class="fas fa-home"></i> Go Home
+            </a>
+            <a href="pages/contact.html" class="button button-outline" style="border-color: var(--primary); color: var(--primary);">
+                <i class="fas fa-envelope"></i> Contact Us
+            </a>
+        </div>
+        <div class="error-links">
+            <p>Or try one of these pages:</p>
+            <ul>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/books.html">Our Books</a></li>
+                <li><a href="pages/community-center.html">Community Center</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Custom JavaScript -->
+    <script src="script/js/script.js" defer></script>
+</body>
+
+</html>

@@ -3,13 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Books - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Access our collection of Christian books and resources to deepen your understanding of God's Word.">
 
-    <!-- Favicon -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Books - Mission for Yeshua">
+    <meta property="og:description" content="Access our collection of Christian books and resources to deepen your understanding of God's Word.">
+    <meta property="og:image" content="https://mission4yeshua.org/images/og-image.jpg">
+    <meta property="og:url" content="https://mission4yeshua.org/pages/books.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mission for Yeshua">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Books - Mission for Yeshua">
+    <meta name="twitter:description" content="Access our collection of Christian books and resources to deepen your understanding of God's Word.">
+    <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,17 +41,87 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="../images/books-hero.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/books-style.css">
+
+    <!-- Structured Data for Books -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Christian Books Collection - Mission for Yeshua",
+        "description": "A collection of Christian books and resources to deepen your understanding of God's Word.",
+        "url": "https://mission4yeshua.org/pages/books.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mission for Yeshua",
+            "url": "https://mission4yeshua.org"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "Book",
+                    "position": 1,
+                    "name": "The Complete Disciple",
+                    "author": {"@type": "Person", "name": "Franck Kamga"},
+                    "description": "A complete disciple is one who is perfected, equipped, straightened, adjusted, completed, repaired, mended and ought to be like His master.",
+                    "genre": ["Discipleship", "Spiritual Growth"]
+                },
+                {
+                    "@type": "Book",
+                    "position": 2,
+                    "name": "Yehoshua the Fountain of Living Water",
+                    "author": {"@type": "Person", "name": "Franck Kamga"},
+                    "description": "Yehoshua (Jesus) is the fountain of living water. He promised to those coming to Him that they will no longer thirst.",
+                    "genre": ["Salvation", "Faith"]
+                },
+                {
+                    "@type": "Book",
+                    "position": 3,
+                    "name": "The Plans of God in Men's Life",
+                    "author": {"@type": "Person", "name": "Franck Kamga"},
+                    "description": "Elohim says in His Word that His ways are not our ways. His thoughts are not ours. He has plans for men.",
+                    "genre": ["Purpose"]
+                },
+                {
+                    "@type": "Book",
+                    "position": 4,
+                    "name": "Faith",
+                    "author": {"@type": "Person", "name": "Franck Kamga"},
+                    "description": "A deep exploration of faith and its fundamental role in the Christian walk.",
+                    "genre": ["Faith", "Spiritual Growth"]
+                },
+                {
+                    "@type": "Book",
+                    "position": 5,
+                    "name": "The Fruits of the Holy Spirit",
+                    "author": {"@type": "Person", "name": "Franck Kamga"},
+                    "description": "Understanding and cultivating the fruits of the Holy Spirit in your life.",
+                    "genre": ["Holy Spirit", "Spiritual Growth"]
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="../images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -45,8 +139,20 @@
         </nav>
     </header>
 
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">Books</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>Our Books</h1>
         <p>Discover spiritual insights through our collection of Christian literature</p>
     </section>
@@ -60,7 +166,7 @@
     </section> -->
 
     <!-- Replace your current search-filter section with this -->
-    <section class="filter-controls">
+    <section id="main-content" class="filter-controls">
         <div class="filter-wrapper">
             <!-- Search Section -->
             <div class="search-section">
@@ -90,8 +196,7 @@
     <!-- Books Grid -->
     <div class="books-grid">
         <div class="book-card">
-            <img src="../images/books/The-complete-disciple.png" alt="The Complete Disciple" class="book-cover"
-                loading="lazy" onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/The-complete-disciple.png" alt="The Complete Disciple" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">discipleship</span>
@@ -106,14 +211,12 @@
                     repaired,
                     mended and ought to be like His master as said in the book of Luke 6:40</p>
                 <a href="https://drive.google.com/file/d/1OC1n3FUOrr8gNIry03VEgjiJj0i4MgKl/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="../images/books/Yehoshua-The-fountain-of-Living-waters.png"
-                alt="Yehoshua the Fountain of Living Water" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/Yehoshua-The-fountain-of-Living-waters.png" alt="Yehoshua the Fountain of Living Water" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">salvation</span>
@@ -128,14 +231,12 @@
                     they will
                     no longer thirst.</p>
                 <a href="https://drive.google.com/file/d/11cBU5GLvqF1J4o9g8kYloVjRt6U0ECuL/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="../images/books/The-plans-of-God-in-Mens-life.png" alt="The Plans of God in Men's Life"
-                class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/The-plans-of-God-in-Mens-life.png" alt="The Plans of God in Men's Life" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">purpose</span>
@@ -149,13 +250,13 @@
                     plans for
                     men.</p>
                 <a href="https://drive.google.com/file/d/1jivURw0J5EO4XzWORbUrbGzOf31_bzDc/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/faith.png" alt="Faith" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">faith</span>
@@ -168,13 +269,13 @@
                 </div>
                 <p>A deep exploration of faith and its fundamental role in the Christian walk.</p>
                 <a href="https://drive.google.com/file/d/1n_kqjMWG4G7Z8OXqWNXD1wy7upIw_oV-/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/potter.png" alt="In the Potter's Hands" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">spiritual-growth</span>
@@ -187,13 +288,13 @@
                 </div>
                 <p>Understanding how Elohim shapes and molds us for His purpose.</p>
                 <a href="https://drive.google.com/file/d/1vStk6s-828Ct4wptWmUj3J39lh5OyGI3/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/grace.png" alt="Is Grace a License to Sin" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">salvation</span>
@@ -206,13 +307,13 @@
                 </div>
                 <p>Understanding the true meaning of grace and its relationship with righteousness.</p>
                 <a href="https://drive.google.com/file/d/1Gh5XYMvpjIaITDm76H54DWgP--jF835k/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/mystery.png" alt="Jesus Mystery Revealed" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">salvation</span>
@@ -225,13 +326,12 @@
                 </div>
                 <p>Unveiling the profound mysteries of Christ and His salvation plan.</p>
                 <a href="https://drive.google.com/file/d/1zKdYrPesUnRykbZBoVjpiRNWx3uNTtqq/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="../images/books/identity.png" alt="Know Your Position and Identity in Mashiah" class="book-cover"
-                loading="lazy" onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/identity.png" alt="Know Your Position and Identity in Mashiah" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">purpose</span>
@@ -244,13 +344,13 @@
                 </div>
                 <p>Discovering who you are in Christ and understanding your spiritual position.</p>
                 <a href="https://drive.google.com/file/d/1gajJ5HbGDPcat9woZ5L6mo8Pkt44VriS/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/pastor.png" alt="Pastor or Entrepreneur" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">ministry</span>
@@ -265,13 +365,12 @@
                     church.
                 </p>
                 <a href="https://drive.google.com/file/d/19_8p64dYaAWpn800xYDsv-O-R455zRZI/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="../images/books/animality.png" alt="The Animality of the Human Being" class="book-cover"
-                loading="lazy" onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/animality.png" alt="The Animality of the Human Being" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">spiritual-growth</span>
@@ -284,14 +383,13 @@
                 </div>
                 <p>Understanding the human nature and its transformation through Christ.</p>
                 <a href="https://drive.google.com/file/d/1GMfJu18DhXe3rBNVwFq0KhQzCrg9_9Na/view?usp=sharing"
-                    class="button" target="_blank">Read
-                    Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/double-mouth.png" alt="The Double Mouth" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">spiritual-growth</span>
@@ -304,13 +402,12 @@
                 </div>
                 <p>Exploring the power of speech and its impact on our spiritual life.</p>
                 <a href="https://drive.google.com/file/d/14YYiEVMklYCa54jTi-cJbIH8jrWxBPVW/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
-            <img src="../images/books/holy-spirit.png" alt="The Fruits of the Holy Spirit" class="book-cover"
-                loading="lazy" onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+            <img src="../images/books/holy-spirit.png" alt="The Fruits of the Holy Spirit" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">holy-spirit</span>
@@ -323,13 +420,13 @@
                 </div>
                 <p>Understanding and cultivating the fruits of the Holy Spirit in your life.</p>
                 <a href="https://drive.google.com/file/d/1tDq7oQAWEUyrreBy62aHw90I-BIueJUF/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/jezebel.png" alt="The Spirit of Jezebel" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">spiritual-warfare</span>
@@ -342,14 +439,13 @@
                 </div>
                 <p>Understanding and overcoming the spirit of Jezebel in modern times.</p>
                 <a href="https://drive.google.com/file/d/15Xk_i1ctoK-OEjXKr9h20RZh7l6G9-jW/view?usp=sharing"
-                    class="button" target="_blank">Read
-                    Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/two-babylons.png" alt="The Two Babylons" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">doctrine</span>
@@ -362,13 +458,13 @@
                 </div>
                 <p>Alexander Hislop's classic work on comparative religion.</p>
                 <a href="https://drive.google.com/file/d/1Zx6aIt2h6w0eB2kaYrV7qpa_YWPG64XO/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/walk-with-god.png" alt="The Walk With God" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">discipleship</span>
@@ -381,13 +477,13 @@
                 </div>
                 <p>A guide to developing and maintaining a close relationship with Elohim.</p>
                 <a href="https://drive.google.com/file/d/1wI9q8j89UWoaIH9rMhjV5j8TvLl893kD/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
         <div class="book-card">
             <img src="../images/books/wheat-tares.png" alt="The Wheat and The Tares" class="book-cover" loading="lazy"
-                onerror="this.onerror=null; this.classList.add('default-cover'); this.src=''">
+                onerror="this.onerror=null; this.src='../images/books/book-placeholder.svg'">
             <div class="book-details">
                 <div class="category-tags">
                     <span class="category-tag">doctrine</span>
@@ -400,7 +496,7 @@
                 </div>
                 <p>Understanding Jesus' parable of the wheat and tares and its modern application.</p>
                 <a href="https://drive.google.com/file/d/1vh_0BqlhwAecS5HhndTnzR6YjX-rLc-U/view?usp=sharing"
-                    class="button" target="_blank">Read Now</a>
+                    class="button" target="_blank" rel="noopener noreferrer">Read Now<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
     </div>
@@ -448,8 +544,21 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-contact-btn" aria-label="Contact us">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Custom JavaScript -->
-    <script src="../script/js/script.js"></script>
+    <script src="../script/js/script.js" defer></script>
 </body>
 
 </html>

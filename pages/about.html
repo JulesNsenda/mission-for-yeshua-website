@@ -3,13 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>About Us - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Learn about Mission for Yeshua's vision, beliefs, and commitment to spreading God's message through literature and community service.">
 
-    <!-- Favicon -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Mission for Yeshua">
+    <meta property="og:description" content="Learn about Mission for Yeshua's vision, beliefs, and commitment to spreading God's message through literature and community service.">
+    <meta property="og:image" content="https://mission4yeshua.org/images/og-image.jpg">
+    <meta property="og:url" content="https://mission4yeshua.org/pages/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mission for Yeshua">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us - Mission for Yeshua">
+    <meta name="twitter:description" content="Learn about Mission for Yeshua's vision, beliefs, and commitment to spreading God's message.">
+    <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,17 +41,26 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="../images/about-hero.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/about-style.css">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="../images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -46,14 +79,26 @@
         </nav>
     </header>
 
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">About Us</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>About Mission for Yeshua</h1>
         <p>Dedicated to spreading the timeless message of holiness and love through literature and community service.
         </p>
     </section>
 
-    <section class="content-section">
+    <section id="main-content" class="content-section">
         <div class="vision-content">
             <h2>Our Vision</h2>
             <p>My Elohîm Yehoshua Ha Mashiah (Jesus-Christ) made me go through the process of repentance by His Grace.
@@ -160,8 +205,21 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-contact-btn" aria-label="Contact us">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Custom JavaScript -->
-    <script src="../script/js/script.js"></script>
+    <script src="../script/js/script.js" defer></script>
 </body>
 
 </html>

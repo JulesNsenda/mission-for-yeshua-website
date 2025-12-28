@@ -3,13 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact Us - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Get in touch with Mission for Yeshua. We're here to answer your questions and help you connect with our ministry.">
 
-    <!-- Favicon -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Us - Mission for Yeshua">
+    <meta property="og:description" content="Get in touch with Mission for Yeshua. We're here to answer your questions and help you connect with our ministry.">
+    <meta property="og:image" content="https://mission4yeshua.org/images/og-image.jpg">
+    <meta property="og:url" content="https://mission4yeshua.org/pages/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mission for Yeshua">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us - Mission for Yeshua">
+    <meta name="twitter:description" content="Get in touch with Mission for Yeshua. We're here to answer your questions.">
+    <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,17 +41,68 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="../images/contact-hero.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/contact-style.css">
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How can I support your mission?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can support us through prayers, volunteering, or donations. Contact us for more information about ways to get involved."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer spiritual counseling?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we provide spiritual counseling by appointment. Please contact us to schedule a session with one of our counselors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I access your teaching materials?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our teaching materials are available through our website's Teachings section. Many resources are free to access."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I volunteer with your organization?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We welcome volunteers for various ministries. Please send us an email to learn about current opportunities."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="../images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -45,14 +120,26 @@
         </nav>
     </header>
 
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">Contact</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>Contact Us</h1>
         <p>We'd love to hear from you. Reach out with any questions, prayer requests, or feedback.</p>
     </section>
 
     <!-- Contact Information -->
-    <section class="contact-section">
+    <section id="main-content" class="contact-section">
         <div class="contact-grid">
             <div class="contact-card">
                 <div class="contact-icon">
@@ -147,8 +234,13 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Custom JavaScript -->
-    <script src="../script/js/script.js"></script>
+    <script src="../script/js/script.js" defer></script>
 </body>
 
 </html>

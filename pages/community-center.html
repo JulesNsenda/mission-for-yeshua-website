@@ -3,13 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Grace Community Center - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Grace Community Center assists orphans, widows, homeless and prostitutes with the Gospel of the Kingdom of Mashiah and basic services.">
 
-    <!-- Favicon -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Grace Community Center - Mission for Yeshua">
+    <meta property="og:description" content="Grace Community Center assists orphans, widows, homeless and those in need with the Gospel and basic services.">
+    <meta property="og:image" content="https://mission4yeshua.org/images/og-image.jpg">
+    <meta property="og:url" content="https://mission4yeshua.org/pages/community-center.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mission for Yeshua">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grace Community Center - Mission for Yeshua">
+    <meta name="twitter:description" content="Supporting our community through faith, service, and compassion.">
+    <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,17 +41,26 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="../images/community-hero.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/community-center-style.css">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="../images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -45,14 +78,26 @@
         </nav>
     </header>
 
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">Grace Community Center</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>Grace Community Center</h1>
         <p>Supporting our community through faith, service, and compassion</p>
     </section>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main id="main-content" class="main-content">
         <div class="content-wrap">
             <p>Mission for Yeshua also registered a Non-profit Organization named Grace Community Center which assists
                 orphans, widows, homeless and prostitutes with the Gospel of the Kingdom of Mashiah (Christ) and the
@@ -113,9 +158,11 @@
 
             <div class="certificate-section">
                 <h2>Registration Certificate</h2>
-                <p>Please find our registration certificate below or <a
-                        href="https://drive.google.com/file/d/1GRRSduiUxdOaYtctEXuMZv3bNZzg3h5B/view?usp=sharing"
-                        target="_blank">download it here</a></p>
+                <p>View or download our official registration certificate.</p>
+                <a href="https://drive.google.com/file/d/1GRRSduiUxdOaYtctEXuMZv3bNZzg3h5B/view?usp=sharing"
+                   target="_blank" rel="noopener noreferrer" class="button button-primary">
+                    <i class="fas fa-download"></i> Download Certificate<span class="sr-only"> (opens in new tab)</span>
+                </a>
             </div>
 
             <div class="contact-info">
@@ -161,8 +208,21 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-contact-btn" aria-label="Contact us">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Custom JavaScript -->
-    <script src="../script/js/script.js"></script>
+    <script src="../script/js/script.js" defer></script>
 </body>
 
 </html>

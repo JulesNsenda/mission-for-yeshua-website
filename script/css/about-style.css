@@ -1,48 +1,14 @@
-/* Additional Custom Styles */
-.header {
-    height: 80px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+/* About Page - Vibrant Modern Design */
 
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Page Hero - Background only (base styles in styles.css) */
 .page-hero {
-    padding: 8rem 2rem 4rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url('../../images/about-hero.jpg') center/cover;
-    color: #ffffff;
-    text-align: center;
-    margin-top: 1px;
+    background: url('../../images/about-hero.jpg') center/cover no-repeat;
 }
 
-.page-hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 0rem;
-}
-
-@media (max-width: 768px) {
-    .page-hero h1 {
-        font-size: 2.5rem;
-    }
-}
-
+/* Vision Section */
 .vision-section {
     max-width: 1280px;
-    margin: 4rem auto;
+    margin: 5rem auto;
     padding: 0 2rem;
 }
 
@@ -57,25 +23,108 @@
     padding-right: 2rem;
 }
 
+.vision-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.vision-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.vision-image {
+    position: relative;
+}
+
+.vision-image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.2;
+}
+
 .vision-image img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(30, 90, 138, 0.15);
+    transition: transform 0.3s ease;
 }
 
+.vision-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Scripture Quote */
 .scripture-quote {
     font-size: 1.25rem;
-    color: #2563eb;
     font-style: italic;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: rgba(37, 99, 235, 0.1);
-    border-radius: 8px;
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.08), rgba(26, 54, 93, 0.08));
+    border-radius: 16px;
+    position: relative;
+    border-left: 4px solid;
+    border-image: var(--gradient-primary) 1;
 }
 
+.scripture-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.5;
+    font-family: Georgia, serif;
+}
+
+.scripture-quote p {
+    position: relative;
+    z-index: 1;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Beliefs Section */
 .beliefs-section {
-    background: #f8fafc;
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.04), rgba(26, 54, 93, 0.04));
     padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.beliefs-section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(30, 90, 138, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.beliefs-section .section-title {
+    margin-bottom: 3rem;
 }
 
 .beliefs-grid {
@@ -83,32 +132,140 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 0 2rem;
 }
 
 .belief-card {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.belief-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .belief-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 40px rgba(30, 90, 138, 0.12),
+        0 0 60px rgba(30, 90, 138, 0.08);
+    border-color: rgba(30, 90, 138, 0.3);
 }
 
-.card-icon {
+.belief-card:hover::before {
+    opacity: 1;
+}
+
+.belief-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.belief-icon i {
     font-size: 2.5rem;
-    color: #2563eb;
-    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
 }
 
+/* Different colors for each card */
+.belief-card:nth-child(1) .belief-icon {
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
+}
+
+.belief-card:nth-child(1) .belief-icon i {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.belief-card:nth-child(2) .belief-icon {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.12), rgba(160, 82, 45, 0.12));
+}
+
+.belief-card:nth-child(2) .belief-icon i {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.belief-card:nth-child(3) .belief-icon {
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.12), rgba(212, 165, 36, 0.12));
+}
+
+.belief-card:nth-child(3) .belief-icon i {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.belief-card:hover .belief-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.belief-card:nth-child(1):hover .belief-icon {
+    background: var(--gradient-primary);
+}
+
+.belief-card:nth-child(2):hover .belief-icon {
+    background: var(--gradient-warm);
+}
+
+.belief-card:nth-child(3):hover .belief-icon {
+    background: var(--gradient-secondary);
+}
+
+.belief-card:hover .belief-icon i {
+    -webkit-text-fill-color: #ffffff;
+}
+
+.belief-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.belief-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Team Section */
 .team-section {
     max-width: 1280px;
     margin: 6rem auto;
     padding: 0 2rem;
+}
+
+.team-section .section-title {
+    margin-bottom: 3rem;
 }
 
 .team-grid {
@@ -118,60 +275,139 @@
 }
 
 .team-card {
-    background: #ffffff;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(30, 90, 138, 0.12);
 }
 
 .team-image {
     width: 100%;
-    height: 280px;
+    height: 300px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image {
+    transform: scale(1.05);
 }
 
 .team-info {
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
 }
 
-.team-role {
-    color: #2563eb;
-    font-weight: 500;
+.team-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
+.team-role {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.team-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mission List */
 .mission-list {
     list-style: none;
-    margin: 1.5rem 0;
+    margin: 2rem 0;
 }
 
 .mission-list li {
     margin-bottom: 1rem;
     padding-left: 2rem;
     position: relative;
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
 .mission-list li::before {
     content: '→';
     position: absolute;
     left: 0;
-    color: #2563eb;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+/* Animation for cards */
+.belief-card,
+.team-card {
+    animation: cardFadeIn 0.6s ease-out backwards;
+}
+
+.belief-card:nth-child(1),
+.team-card:nth-child(1) { animation-delay: 0.1s; }
+.belief-card:nth-child(2),
+.team-card:nth-child(2) { animation-delay: 0.2s; }
+.belief-card:nth-child(3),
+.team-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .beliefs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-
     .vision-grid,
     .beliefs-grid,
     .team-grid {
         grid-template-columns: 1fr;
     }
 
-    .page-hero h1 {
-        font-size: 2.5rem;
-    }
-
     .vision-content {
         padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .vision-image::before {
+        display: none;
+    }
+
+    .vision-content h2 {
+        font-size: 2rem;
+    }
+
+    .belief-card,
+    .team-card {
+        animation-delay: 0s !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .vision-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .belief-card,
+    .team-info {
+        padding: 1.5rem;
     }
 }

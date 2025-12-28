@@ -3,13 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Mission for Yeshua - Spreading Elohîm's Word</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Mission for Yeshua is dedicated to spreading the timeless message of holiness, fear of Elohîm, compassion and love.">
 
-    <!-- Favicon -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mission for Yeshua - Spreading Elohîm's Word">
+    <meta property="og:description" content="We're dedicated to spreading the timeless message of holiness, fear of Elohîm, compassion and love championed by our Lord and Savior Yehoshua Mashiah.">
+    <meta property="og:image" content="https://mission4yeshua.org/images/og-image.jpg">
+    <meta property="og:url" content="https://mission4yeshua.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mission for Yeshua">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mission for Yeshua - Spreading Elohîm's Word">
+    <meta name="twitter:description" content="We're dedicated to spreading the timeless message of holiness, fear of Elohîm, compassion and love.">
+    <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
+
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,17 +41,45 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="images/hero-bg.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="script/css/styles.css">
     <link rel="stylesheet" href="script/css/index-style.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ReligiousOrganization",
+        "name": "Mission for Yeshua",
+        "description": "A Christian ministry dedicated to spreading the timeless message of holiness, fear of Elohîm, compassion and love.",
+        "url": "https://mission4yeshua.org",
+        "logo": "https://mission4yeshua.org/images/logo.png",
+        "email": "contact@mission4yeshua.org",
+        "sameAs": [],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ZA"
+        },
+        "nonprofitStatus": "Nonprofit501c3"
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -45,19 +97,33 @@
         </nav>
     </header>
 
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero parallax-bg">
         <div class="hero-content">
             <h1>GO AND CONTINUE TO WIN SOULS</h1>
             <p>We're dedicated to spreading the timeless message of holiness, fear of Elohîm, compassion and love
                 championed by our Lord and Savior Yehoshua Mashiah.</p>
+            <div class="hero-buttons">
+                <a href="pages/about.html" class="button button-primary">Learn About Us</a>
+                <a href="pages/contact.html" class="button button-outline">Get In Touch</a>
+            </div>
         </div>
+        <!-- Scroll Indicator -->
+        <a href="#main-content" class="scroll-indicator" aria-label="Scroll to content">
+            <span class="scroll-indicator-text">Scroll</span>
+            <span class="scroll-indicator-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </span>
+        </a>
     </section>
 
     <!-- Mission Section -->
-    <section class="content-section">
-        <h2 class="section-title">Our Mission</h2>
-        <div class="grid-3">
+    <section id="main-content" class="content-section">
+        <h2 class="section-title reveal">Our Mission</h2>
+        <div class="grid-3 stagger-children">
             <div class="card">
                 <i class="fas fa-book-open"></i>
                 <h3 class="card-title">Bible Teachings</h3>
@@ -80,46 +146,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Recent Teachings Section -->
-    <!-- <section class="content-section">
-        <h2 class="section-title">Recent Teachings</h2>
-        <div class="grid-3">
-            <div class="card teaching-card">
-                <img src="images/teaching1.jpg" alt="Understanding Scripture" class="card-image">
-                <h3 class="card-title">Understanding Scripture</h3>
-                <p class="scripture-reference">2 Timothy 3:16-17</p>
-                <p>Learn how to study and understand God's Word effectively through systematic Bible study methods.</p>
-                <a href="pages/teachings.html" class="button">Read More</a>
-            </div>
-
-            <div class="card teaching-card">
-                <img src="images/teaching2.jpg" alt="Power of Prayer" class="card-image">
-                <h3 class="card-title">Power of Prayer</h3>
-                <p class="scripture-reference">Philippians 4:6-7</p>
-                <p>Discover the transformative power of prayer and how to develop a deeper prayer life.</p>
-                <a href="pages/teachings.html" class="button">Read More</a>
-            </div>
-
-            <div class="card teaching-card">
-                <img src="images/teaching3.jpg" alt="Building Community" class="card-image">
-                <h3 class="card-title">Building Community</h3>
-                <p class="scripture-reference">Acts 2:42-47</p>
-                <p>Learn about the importance of Christian community and how to foster meaningful relationships.</p>
-                <a href="pages/teachings.html" class="button">Read More</a>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Newsletter Section -->
-    <!-- <section class="newsletter-section">
-        <h2>Stay Updated</h2>
-        <p>Subscribe to receive notifications about new books and teachings.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="button">Subscribe</button>
-        </form>
-    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -156,8 +182,21 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="pages/contact.html" class="floating-contact-btn" aria-label="Contact us">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Custom JavaScript -->
-    <script src="script/js/script.js"></script>
+    <script src="script/js/script.js" defer></script>
 </body>
 
 </html>

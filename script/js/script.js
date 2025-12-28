@@ -1,12 +1,81 @@
 // Modern JavaScript with better organization and smooth animations
 document.addEventListener('DOMContentLoaded', () => {
+    initializePreloader();
     initializeNavigation();
     initializeSearch();
     initializeScrollEffects();
+    initializeScrollReveal();
+    initializeParallax();
     initializeFormValidation();
     initializeBookFeatures();
     initializeBookCovers();
+    initializeBackToTop();
+    initializeShareButtons();
+    initializeDarkMode();
+    initializeScrollProgress();
 });
+
+// Preloader
+function initializePreloader() {
+    const preloader = document.querySelector('.preloader');
+    if (!preloader) return;
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 500);
+    });
+
+    // Fallback - hide preloader after 3 seconds max
+    setTimeout(() => {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }
+    }, 3000);
+}
+
+// Scroll Reveal Animations
+function initializeScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
+
+    if (revealElements.length === 0) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                // Optional: stop observing after revealed
+                // revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+}
+
+// Parallax Effect
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    if (parallaxElements.length === 0) return;
+
+    // Only apply parallax on larger screens
+    if (window.innerWidth <= 768) return;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        parallaxElements.forEach(element => {
+            const speed = 0.5;
+            element.style.backgroundPositionY = `${scrolled * speed}px`;
+        });
+    }, { passive: true });
+}
 
 // Navigation functionality
 function initializeNavigation() {
@@ -339,20 +408,44 @@ function initializeBookFeatures() {
 }
 
 
-// Handle book cover images
+// Handle book cover images with skeleton loading
 function initializeBookCovers() {
     const bookCovers = document.querySelectorAll('.book-cover');
+    const placeholderPath = window.location.pathname.includes('/pages/')
+        ? '../images/books/book-placeholder.svg'
+        : 'images/books/book-placeholder.svg';
 
     bookCovers.forEach(cover => {
-        cover.addEventListener('error', function () {
-            this.src = '';
-            this.classList.add('default-cover');
+        // Wrap cover in skeleton wrapper if not already wrapped
+        if (!cover.parentElement.classList.contains('book-cover-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'book-cover-wrapper';
+            cover.parentNode.insertBefore(wrapper, cover);
+            wrapper.appendChild(cover);
+        }
 
-            // Create default cover content
-            this.innerHTML = `
-                <i class="fas fa-book default-cover-icon"></i>
-            `;
+        const wrapper = cover.parentElement;
+
+        // Handle successful load
+        cover.addEventListener('load', function() {
+            this.classList.add('loaded');
+            wrapper.classList.add('loaded');
         });
+
+        // Handle error
+        cover.addEventListener('error', function () {
+            if (!this.src.includes('book-placeholder.svg')) {
+                this.src = placeholderPath;
+            }
+            this.classList.add('loaded');
+            wrapper.classList.add('loaded');
+        });
+
+        // If already loaded (cached), mark as loaded
+        if (cover.complete && cover.naturalHeight !== 0) {
+            cover.classList.add('loaded');
+            wrapper.classList.add('loaded');
+        }
     });
 }
 
@@ -390,6 +483,163 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Share Buttons for Book Cards
+function initializeShareButtons() {
+    const bookCards = document.querySelectorAll('.book-card');
+    if (bookCards.length === 0) return;
+
+    bookCards.forEach(card => {
+        const bookDetails = card.querySelector('.book-details');
+        const readButton = bookDetails.querySelector('.button');
+        const bookTitle = card.querySelector('h2')?.textContent || 'Check out this book';
+        const bookLink = readButton?.href || window.location.href;
+
+        // Create share button container
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'book-actions';
+
+        // Move the read button into the actions div
+        if (readButton) {
+            actionsDiv.appendChild(readButton);
+        }
+
+        // Create share button
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'share-btn';
+        shareBtn.setAttribute('aria-label', 'Share this book');
+        shareBtn.innerHTML = `
+            <i class="fas fa-share-alt"></i>
+            <div class="share-dropdown">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(bookTitle)}&url=${encodeURIComponent(bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://wa.me/?text=${encodeURIComponent(bookTitle + ' ' + bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" class="copy-link" data-link="${bookLink}">
+                    <i class="fas fa-link"></i> Copy Link
+                </a>
+            </div>
+        `;
+
+        actionsDiv.appendChild(shareBtn);
+        bookDetails.appendChild(actionsDiv);
+
+        // Handle copy link
+        const copyLink = shareBtn.querySelector('.copy-link');
+        copyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(bookLink).then(() => {
+                const originalText = copyLink.innerHTML;
+                copyLink.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyLink.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    });
+}
+
+// Dark Mode Toggle
+function initializeDarkMode() {
+    // Check for saved preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Create dark mode toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'dark-mode-toggle';
+    toggleBtn.setAttribute('aria-label', 'Toggle dark mode');
+    toggleBtn.innerHTML = document.body.classList.contains('dark-mode')
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+
+    document.body.appendChild(toggleBtn);
+
+    // Toggle dark mode on click
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+
+        // Update icon
+        toggleBtn.innerHTML = isDark
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+
+        // Save preference
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        // Animate the toggle
+        toggleBtn.style.transform = 'scale(1.2) rotate(180deg)';
+        setTimeout(() => {
+            toggleBtn.style.transform = 'scale(1) rotate(0deg)';
+        }, 300);
+    });
+}
+
+// Back to Top Button functionality
+function initializeBackToTop() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    const floatingContact = document.querySelector('.floating-contact');
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+            // Shift contact button to the left when back-to-top appears
+            if (floatingContact) {
+                floatingContact.classList.add('shifted');
+            }
+        } else {
+            backToTopButton.classList.remove('visible');
+            // Move contact button back to original position
+            if (floatingContact) {
+                floatingContact.classList.remove('shifted');
+            }
+        }
+    });
+
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Scroll Progress Bar
+function initializeScrollProgress() {
+    // Create progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    // Update progress bar on scroll
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+
+        progressBar.style.width = `${scrollPercent}%`;
+
+        // Add active class for glow effect when scrolling
+        if (scrollPercent > 0 && scrollPercent < 100) {
+            progressBar.classList.add('active');
+        } else {
+            progressBar.classList.remove('active');
+        }
+    }, { passive: true });
+}
 
 
 
