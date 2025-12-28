@@ -27,11 +27,13 @@
     <meta name="twitter:description" content="Get in touch with Mission for Yeshua. We're here to answer your questions.">
     <meta name="twitter:image" content="https://mission4yeshua.org/images/og-image.jpg">
 
-    <!-- Favicon -->
+    <!-- Favicon & PWA -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1e5a8a">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -45,6 +47,48 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/contact-style.css">
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How can I support your mission?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can support us through prayers, volunteering, or donations. Contact us for more information about ways to get involved."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer spiritual counseling?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we provide spiritual counseling by appointment. Please contact us to schedule a session with one of our counselors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I access your teaching materials?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our teaching materials are available through our website's Teachings section. Many resources are free to access."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I volunteer with your organization?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We welcome volunteers for various ministries. Please send us an email to learn about current opportunities."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>

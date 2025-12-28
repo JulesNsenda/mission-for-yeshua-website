@@ -1873,6 +1873,36 @@ body.dark-mode .belief-icon {
 }
 
 /* ========================================
+   SCROLL PROGRESS BAR
+   ======================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--gradient-primary);
+    z-index: 10001;
+    transition: width 0.1s ease-out;
+}
+
+.scroll-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-progress.active::after {
+    opacity: 1;
+}
+
+/* ========================================
    PRINT STYLES
    ======================================== */
 @media print {

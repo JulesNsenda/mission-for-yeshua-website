@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeBackToTop();
     initializeShareButtons();
     initializeDarkMode();
+    initializeScrollProgress();
 });
 
 // Preloader
@@ -614,6 +615,30 @@ function initializeBackToTop() {
             behavior: 'smooth'
         });
     });
+}
+
+// Scroll Progress Bar
+function initializeScrollProgress() {
+    // Create progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    // Update progress bar on scroll
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+
+        progressBar.style.width = `${scrollPercent}%`;
+
+        // Add active class for glow effect when scrolling
+        if (scrollPercent > 0 && scrollPercent < 100) {
+            progressBar.classList.add('active');
+        } else {
+            progressBar.classList.remove('active');
+        }
+    }, { passive: true });
 }
 
 
