@@ -279,6 +279,21 @@
     align-self: flex-start;
     padding: 0.75rem 1.75rem;
     font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-details .button::after {
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.book-details .button:hover::after {
+    transform: translateX(4px);
 }
 
 /* No Results */

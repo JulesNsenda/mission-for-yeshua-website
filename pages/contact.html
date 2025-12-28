@@ -39,6 +39,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" href="../images/contact-hero.jpg" as="image">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../script/css/styles.css">
     <link rel="stylesheet" href="../script/css/contact-style.css">
@@ -47,7 +50,7 @@
 <body>
     <!-- Preloader -->
     <div class="preloader">
-        <img src="../images/logo.png" alt="Loading..." class="preloader-logo">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo" width="80" height="80">
         <div class="preloader-spinner"></div>
     </div>
 
@@ -55,7 +58,7 @@
     <header class="header">
         <nav class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Mission for Yeshua Logo" height="40">
+                <img src="../images/logo.png" alt="Mission for Yeshua Logo" width="40" height="40">
             </a>
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" aria-label="Open navigation menu">
@@ -193,7 +196,7 @@
     </button>
 
     <!-- Custom JavaScript -->
-    <script src="../script/js/script.js"></script>
+    <script src="../script/js/script.js" defer></script>
 </body>
 
 </html>

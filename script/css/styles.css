@@ -528,6 +528,15 @@ body {
     opacity: 1;
 }
 
+/* Gradient border effect for cards */
+.card {
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--glass-bg), var(--glass-bg)),
+                      linear-gradient(135deg, rgba(30, 90, 138, 0.2), rgba(184, 134, 11, 0.2));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
 .card i {
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -1078,6 +1087,46 @@ html, body {
     max-width: 100vw;
 }
 
+/* ========================================
+   IMAGE LOADING EFFECTS
+   ======================================== */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src=""]) {
+    opacity: 1;
+}
+
+/* Fade-in effect for images */
+.fade-in-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in-image.loaded {
+    opacity: 1;
+}
+
+/* ========================================
+   IMPROVED TEXT CONTRAST
+   ======================================== */
+:root {
+    --text-muted-improved: #64748b;
+}
+
+.footer-bottom p,
+.book-meta,
+.stat-label {
+    color: var(--text-muted-improved);
+}
+
 /* Smooth scrolling with reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -1272,14 +1321,14 @@ html, body {
    ======================================== */
 .floating-contact {
     position: fixed;
-    bottom: 100px;
+    bottom: 95px;
     right: 30px;
     z-index: 998;
 }
 
 .floating-contact-btn {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: var(--gradient-secondary);
     color: #ffffff;
@@ -1288,7 +1337,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     box-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
     transition: all 0.3s ease;
     text-decoration: none;
@@ -1301,7 +1350,7 @@ html, body {
 
 .floating-contact-btn .tooltip {
     position: absolute;
-    right: 70px;
+    right: 60px;
     background: var(--bg-dark);
     color: #ffffff;
     padding: 0.5rem 1rem;
@@ -1317,18 +1366,18 @@ html, body {
 .floating-contact-btn:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    right: 65px;
+    right: 58px;
 }
 
 @media (max-width: 768px) {
     .floating-contact {
-        bottom: 90px;
-        right: 20px;
+        bottom: 80px;
+        right: 15px;
     }
 
     .floating-contact-btn {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
         font-size: 1.1rem;
     }
 
