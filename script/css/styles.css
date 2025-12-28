@@ -1797,6 +1797,81 @@ body.dark-mode .scripture-quote {
     color: var(--text-secondary);
 }
 
+/* Community Center Dark Mode */
+body.dark-mode .content-wrap {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+}
+
+body.dark-mode .content-wrap p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .service-card {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .service-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .service-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .stat-card {
+    background: rgba(30, 90, 138, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .stat-label {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-info {
+    background: rgba(30, 90, 138, 0.15);
+}
+
+body.dark-mode .contact-info p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-info a {
+    color: var(--primary-light);
+}
+
+body.dark-mode .certificate-section {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .service-icon {
+    background: rgba(30, 90, 138, 0.2);
+}
+
+/* About Page Dark Mode */
+body.dark-mode .vision-content p,
+body.dark-mode .mission-list li {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .belief-card {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .belief-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .belief-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .belief-icon {
+    background: rgba(30, 90, 138, 0.2);
+}
+
 /* ========================================
    PRINT STYLES
    ======================================== */
