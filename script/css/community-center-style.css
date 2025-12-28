@@ -234,11 +234,20 @@
     margin-top: 4rem;
     padding-top: 3rem;
     border-top: 1px solid rgba(30, 90, 138, 0.2);
+    text-align: center;
 }
 
 .certificate-section h2 {
     font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.certificate-section p {
     margin-bottom: 1.5rem;
+}
+
+.certificate-section .button {
+    margin-top: 0.5rem;
 }
 
 .pdf-embed {
