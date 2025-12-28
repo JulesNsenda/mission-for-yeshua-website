@@ -632,30 +632,13 @@ body {
 .footer ul a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    display: block;
+    display: inline-block;
     padding: 0.4rem 0;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.footer ul a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-secondary);
-    transition: width 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .footer ul a:hover {
-    color: #ffffff;
-    transform: translateX(8px);
-}
-
-.footer ul a:hover::after {
-    width: 100%;
+    color: var(--primary-light);
 }
 
 .footer a {
