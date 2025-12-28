@@ -1,78 +1,8 @@
 /* About Page - Vibrant Modern Design */
 
-/* Page Hero */
+/* Page Hero - Background only (base styles in styles.css) */
 .page-hero {
-    min-height: 50vh;
-    padding: 10rem 2rem 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
     background: url('../../images/about-hero.jpg') center/cover no-repeat;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 90, 138, 0.75) 0%, rgba(26, 54, 93, 0.7) 100%);
-    z-index: 1;
-}
-
-.page-hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        radial-gradient(circle at 30% 70%, rgba(184, 134, 11, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 70% 30%, rgba(30, 90, 138, 0.15) 0%, transparent 40%);
-    z-index: 2;
-    animation: heroGlow 6s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.page-hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 3;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 0.8s ease-out;
-}
-
-.page-hero p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    position: relative;
-    z-index: 3;
-    animation: fadeInUp 0.8s ease-out 0.2s backwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Vision Section */
@@ -411,17 +341,6 @@
 .belief-card:nth-child(3),
 .team-card:nth-child(3) { animation-delay: 0.3s; }
 
-@keyframes cardFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
     .beliefs-grid {
@@ -434,15 +353,6 @@
 }
 
 @media (max-width: 768px) {
-    .page-hero {
-        min-height: 40vh;
-        padding: 8rem 1.5rem 3rem;
-    }
-
-    .page-hero h1 {
-        font-size: 2.2rem;
-    }
-
     .vision-grid,
     .beliefs-grid,
     .team-grid {
@@ -469,10 +379,6 @@
 }
 
 @media (max-width: 480px) {
-    .page-hero h1 {
-        font-size: 1.8rem;
-    }
-
     .vision-content h2 {
         font-size: 1.6rem;
     }

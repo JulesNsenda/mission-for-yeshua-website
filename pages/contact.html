@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Get in touch with Mission for Yeshua. We're here to answer your questions and help you connect with our ministry.">
 
@@ -40,6 +45,12 @@
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
@@ -65,8 +76,17 @@
     <!-- Skip to Content (Accessibility) -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">Contact</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>Contact Us</h1>
         <p>We'd love to hear from you. Reach out with any questions, prayer requests, or feedback.</p>
     </section>

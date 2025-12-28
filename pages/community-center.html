@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace Community Center - Mission for Yeshua</title>
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <meta name="description"
         content="Grace Community Center assists orphans, widows, homeless and prostitutes with the Gospel of the Kingdom of Mashiah and basic services.">
 
@@ -40,6 +45,12 @@
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="../images/logo.png" alt="Loading..." class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
@@ -65,8 +76,17 @@
     <!-- Skip to Content (Accessibility) -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <span class="current">Grace Community Center</span>
+        </div>
+    </nav>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero parallax-bg">
         <h1>Grace Community Center</h1>
         <p>Supporting our community through faith, service, and compassion</p>
     </section>
@@ -180,6 +200,14 @@
             <p>&copy; 2025 Mission for Yeshua. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-contact-btn" aria-label="Contact us">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contact Us</span>
+        </a>
+    </div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" aria-label="Back to top">

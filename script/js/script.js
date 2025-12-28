@@ -1,13 +1,78 @@
 // Modern JavaScript with better organization and smooth animations
 document.addEventListener('DOMContentLoaded', () => {
+    initializePreloader();
     initializeNavigation();
     initializeSearch();
     initializeScrollEffects();
+    initializeScrollReveal();
+    initializeParallax();
     initializeFormValidation();
     initializeBookFeatures();
     initializeBookCovers();
     initializeBackToTop();
 });
+
+// Preloader
+function initializePreloader() {
+    const preloader = document.querySelector('.preloader');
+    if (!preloader) return;
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 500);
+    });
+
+    // Fallback - hide preloader after 3 seconds max
+    setTimeout(() => {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }
+    }, 3000);
+}
+
+// Scroll Reveal Animations
+function initializeScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
+
+    if (revealElements.length === 0) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                // Optional: stop observing after revealed
+                // revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+}
+
+// Parallax Effect
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    if (parallaxElements.length === 0) return;
+
+    // Only apply parallax on larger screens
+    if (window.innerWidth <= 768) return;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        parallaxElements.forEach(element => {
+            const speed = 0.5;
+            element.style.backgroundPositionY = `${scrolled * speed}px`;
+        });
+    }, { passive: true });
+}
 
 // Navigation functionality
 function initializeNavigation() {

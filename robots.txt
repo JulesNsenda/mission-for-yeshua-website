@@ -1,0 +1,6 @@
+# Robots.txt for Mission for Yeshua
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mission4yeshua.org/sitemap.xml
