@@ -343,6 +343,93 @@ body {
     box-shadow: 0 8px 25px rgba(184, 134, 11, 0.45);
 }
 
+.button-primary {
+    background: var(--gradient-primary);
+    color: #ffffff;
+}
+
+.button-outline {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.button-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Buttons Container */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+    top: 10px;
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 20px rgba(30, 90, 138, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(30, 90, 138, 0.5);
+}
+
 /* ========================================
    CONTENT SECTIONS
    ======================================== */

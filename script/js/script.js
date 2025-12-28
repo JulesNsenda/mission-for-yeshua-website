@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeFormValidation();
     initializeBookFeatures();
     initializeBookCovers();
+    initializeBackToTop();
 });
 
 // Navigation functionality
@@ -390,6 +391,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Back to Top Button functionality
+function initializeBackToTop() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 
 
