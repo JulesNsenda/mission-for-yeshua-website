@@ -389,9 +389,85 @@ body {
     justify-content: center;
 }
 
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    color: #ffffff;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.scroll-indicator-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator-arrow {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+}
+
+.scroll-indicator-arrow i {
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 20px;
+    }
+
+    .scroll-indicator-text {
+        font-size: 0.65rem;
+    }
+
+    .scroll-indicator-arrow {
+        width: 24px;
+        height: 40px;
+    }
+}
+
 /* ========================================
    ACCESSIBILITY
    ======================================== */
+/* Screen reader only - visually hidden but accessible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .skip-to-content {
     position: absolute;
     top: -100px;
@@ -1558,6 +1634,167 @@ img[loading="lazy"]:not([src=""]) {
     .page-hero h1 {
         font-size: 1.8rem;
     }
+}
+
+/* ========================================
+   DARK MODE TOGGLE
+   ======================================== */
+.dark-mode-toggle {
+    position: fixed;
+    top: 90px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    z-index: 997;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        top: 80px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   DARK MODE STYLES
+   ======================================== */
+body.dark-mode {
+    --bg-light: #0f172a;
+    --bg-white: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --glass-bg: rgba(30, 41, 59, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode {
+    background: var(--bg-light);
+    color: var(--text-primary);
+}
+
+body.dark-mode .card,
+body.dark-mode .book-card,
+body.dark-mode .contact-card,
+body.dark-mode .faq-item,
+body.dark-mode .belief-card,
+body.dark-mode .service-card {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+}
+
+body.dark-mode .card-title,
+body.dark-mode .book-details h2,
+body.dark-mode .contact-card h3,
+body.dark-mode .faq-item h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .breadcrumbs {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .breadcrumbs a {
+    color: var(--primary-light);
+}
+
+body.dark-mode .filter-controls {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .search-input {
+    background: var(--bg-white);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+body.dark-mode .search-input::placeholder {
+    color: var(--text-muted);
+}
+
+body.dark-mode .category-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+body.dark-mode .category-btn.active {
+    background: var(--gradient-primary);
+    color: #ffffff;
+}
+
+body.dark-mode .book-details {
+    background: linear-gradient(to bottom, rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 1));
+}
+
+body.dark-mode .category-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-light);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: rgba(30, 41, 59, 0.9);
+    color: var(--secondary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .content-section,
+body.dark-mode .main-content,
+body.dark-mode .contact-section,
+body.dark-mode .faq-section,
+body.dark-mode .beliefs-section {
+    background: transparent;
+}
+
+body.dark-mode .share-dropdown {
+    background: var(--bg-white);
+}
+
+body.dark-mode .share-dropdown a {
+    color: var(--text-primary);
+}
+
+body.dark-mode .share-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-form {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+}
+
+body.dark-mode .form-input {
+    background: var(--bg-white);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+body.dark-mode .scripture-quote {
+    background: rgba(30, 90, 138, 0.15);
+    border-color: var(--primary);
+    color: var(--text-secondary);
 }
 
 /* ========================================

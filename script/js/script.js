@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeBookFeatures();
     initializeBookCovers();
     initializeBackToTop();
+    initializeShareButtons();
+    initializeDarkMode();
 });
 
 // Preloader
@@ -405,7 +407,7 @@ function initializeBookFeatures() {
 }
 
 
-// Handle book cover images
+// Handle book cover images with skeleton loading
 function initializeBookCovers() {
     const bookCovers = document.querySelectorAll('.book-cover');
     const placeholderPath = window.location.pathname.includes('/pages/')
@@ -413,11 +415,36 @@ function initializeBookCovers() {
         : 'images/books/book-placeholder.svg';
 
     bookCovers.forEach(cover => {
+        // Wrap cover in skeleton wrapper if not already wrapped
+        if (!cover.parentElement.classList.contains('book-cover-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'book-cover-wrapper';
+            cover.parentNode.insertBefore(wrapper, cover);
+            wrapper.appendChild(cover);
+        }
+
+        const wrapper = cover.parentElement;
+
+        // Handle successful load
+        cover.addEventListener('load', function() {
+            this.classList.add('loaded');
+            wrapper.classList.add('loaded');
+        });
+
+        // Handle error
         cover.addEventListener('error', function () {
             if (!this.src.includes('book-placeholder.svg')) {
                 this.src = placeholderPath;
             }
+            this.classList.add('loaded');
+            wrapper.classList.add('loaded');
         });
+
+        // If already loaded (cached), mark as loaded
+        if (cover.complete && cover.naturalHeight !== 0) {
+            cover.classList.add('loaded');
+            wrapper.classList.add('loaded');
+        }
     });
 }
 
@@ -455,6 +482,107 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Share Buttons for Book Cards
+function initializeShareButtons() {
+    const bookCards = document.querySelectorAll('.book-card');
+    if (bookCards.length === 0) return;
+
+    bookCards.forEach(card => {
+        const bookDetails = card.querySelector('.book-details');
+        const readButton = bookDetails.querySelector('.button');
+        const bookTitle = card.querySelector('h2')?.textContent || 'Check out this book';
+        const bookLink = readButton?.href || window.location.href;
+
+        // Create share button container
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'book-actions';
+
+        // Move the read button into the actions div
+        if (readButton) {
+            actionsDiv.appendChild(readButton);
+        }
+
+        // Create share button
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'share-btn';
+        shareBtn.setAttribute('aria-label', 'Share this book');
+        shareBtn.innerHTML = `
+            <i class="fas fa-share-alt"></i>
+            <div class="share-dropdown">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(bookTitle)}&url=${encodeURIComponent(bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://wa.me/?text=${encodeURIComponent(bookTitle + ' ' + bookLink)}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" class="copy-link" data-link="${bookLink}">
+                    <i class="fas fa-link"></i> Copy Link
+                </a>
+            </div>
+        `;
+
+        actionsDiv.appendChild(shareBtn);
+        bookDetails.appendChild(actionsDiv);
+
+        // Handle copy link
+        const copyLink = shareBtn.querySelector('.copy-link');
+        copyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText(bookLink).then(() => {
+                const originalText = copyLink.innerHTML;
+                copyLink.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyLink.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    });
+}
+
+// Dark Mode Toggle
+function initializeDarkMode() {
+    // Check for saved preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Create dark mode toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'dark-mode-toggle';
+    toggleBtn.setAttribute('aria-label', 'Toggle dark mode');
+    toggleBtn.innerHTML = document.body.classList.contains('dark-mode')
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+
+    document.body.appendChild(toggleBtn);
+
+    // Toggle dark mode on click
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+
+        // Update icon
+        toggleBtn.innerHTML = isDark
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+
+        // Save preference
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        // Animate the toggle
+        toggleBtn.style.transform = 'scale(1.2) rotate(180deg)';
+        setTimeout(() => {
+            toggleBtn.style.transform = 'scale(1) rotate(0deg)';
+        }, 300);
+    });
+}
 
 // Back to Top Button functionality
 function initializeBackToTop() {
