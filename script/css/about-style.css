@@ -146,6 +146,7 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .belief-card::before {
@@ -173,28 +174,71 @@
 }
 
 .belief-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem;
     transition: all 0.3s ease;
 }
 
 .belief-icon i {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Different colors for each card */
+.belief-card:nth-child(1) .belief-icon {
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
+}
+
+.belief-card:nth-child(1) .belief-icon i {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.belief-card:nth-child(2) .belief-icon {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.12), rgba(160, 82, 45, 0.12));
+}
+
+.belief-card:nth-child(2) .belief-icon i {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.belief-card:nth-child(3) .belief-icon {
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.12), rgba(212, 165, 36, 0.12));
+}
+
+.belief-card:nth-child(3) .belief-icon i {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .belief-card:hover .belief-icon {
     transform: scale(1.1) rotate(-5deg);
+}
+
+.belief-card:nth-child(1):hover .belief-icon {
     background: var(--gradient-primary);
+}
+
+.belief-card:nth-child(2):hover .belief-icon {
+    background: var(--gradient-warm);
+}
+
+.belief-card:nth-child(3):hover .belief-icon {
+    background: var(--gradient-secondary);
 }
 
 .belief-card:hover .belief-icon i {

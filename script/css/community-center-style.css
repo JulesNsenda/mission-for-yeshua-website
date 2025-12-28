@@ -94,6 +94,7 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .service-card::before {
@@ -121,28 +122,85 @@
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem;
     transition: all 0.3s ease;
 }
 
 .service-icon i {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Different colors for each service card */
+.service-card:nth-child(1) .service-icon {
+    background: linear-gradient(135deg, rgba(30, 90, 138, 0.12), rgba(26, 54, 93, 0.12));
+}
+
+.service-card:nth-child(1) .service-icon i {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.service-card:nth-child(2) .service-icon {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.12), rgba(160, 82, 45, 0.12));
+}
+
+.service-card:nth-child(2) .service-icon i {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.service-card:nth-child(3) .service-icon {
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.12), rgba(212, 165, 36, 0.12));
+}
+
+.service-card:nth-child(3) .service-icon i {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.service-card:nth-child(4) .service-icon {
+    background: linear-gradient(135deg, rgba(26, 107, 107, 0.12), rgba(30, 90, 138, 0.12));
+}
+
+.service-card:nth-child(4) .service-icon i {
+    background: linear-gradient(135deg, #1a6b6b 0%, #1e5a8a 100%);
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .service-card:hover .service-icon {
     transform: scale(1.1) rotate(-5deg);
+}
+
+.service-card:nth-child(1):hover .service-icon {
     background: var(--gradient-primary);
+}
+
+.service-card:nth-child(2):hover .service-icon {
+    background: var(--gradient-warm);
+}
+
+.service-card:nth-child(3):hover .service-icon {
+    background: var(--gradient-secondary);
+}
+
+.service-card:nth-child(4):hover .service-icon {
+    background: linear-gradient(135deg, #1a6b6b 0%, #1e5a8a 100%);
 }
 
 .service-card:hover .service-icon i {
